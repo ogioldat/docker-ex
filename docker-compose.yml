@@ -1,0 +1,17 @@
+version: '3'
+services:
+    api:
+        build: .
+        ports:
+            - "3000:3000"
+    db:
+        image: "postgres"
+        environment: 
+            POSTGRES_ROOT_PASSWORD: pass
+        volumes: 
+            - db-data:/storage
+        ports:
+            - "5432:5432"
+
+volumes:
+    db-data: 
